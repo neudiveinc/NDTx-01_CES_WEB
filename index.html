@@ -53,5 +53,16 @@
         window.addEventListener("resize", resizeCanvas);
         window.addEventListener("load", resizeCanvas);
     </script>
+    <script>
+      function lockOrientation() {
+          if (screen.orientation) {
+              screen.orientation.lock("portrait").catch(function(error) {
+                  console.warn("Orientation lock failed:", error);
+              });
+          }
+      }
+      window.addEventListener("load", lockOrientation);
+      window.addEventListener("resize", lockOrientation);
+  </script>
 </body>
 </html>
